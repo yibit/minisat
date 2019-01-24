@@ -212,3 +212,6 @@ distclean:	clean
 -include $(foreach s, $(SRCS:.cc=.d), $(BUILD_DIR)/debug/$s)
 -include $(foreach s, $(SRCS:.cc=.d), $(BUILD_DIR)/profile/$s)
 -include $(foreach s, $(SRCS:.cc=.d), $(BUILD_DIR)/dynamic/$s)
+
+fmt:
+	find . -name "*.cc" -o -name "*.h" |xargs -I {} clang-format -i --style=file {}
